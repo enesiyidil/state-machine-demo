@@ -1,0 +1,33 @@
+server:
+  port: 9090
+
+spring:
+  # ---------- Application Properties ----------
+  application:
+    name: spring-state-machine-demo
+  profiles:
+    active:
+      - development
+
+  # ---------- Postgres Properties ----------
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-state-machine-demo-db
+    username: postgres
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+    hibernate:
+      ddl-auto: create
+
+# ---------- Swagger Properties ----------
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  show-actuator: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operations-sorter: method
